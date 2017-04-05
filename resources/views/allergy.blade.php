@@ -136,8 +136,11 @@
 			</table>
 		</div>
 	</div>
-	<div class="well-lg">
-		<button id="btnPrint" class="btn-success">Print</button>
+	<div class="well-sm">
+		<ul>
+			<button id="btnPrint" class="btn-success">Print</button>
+			<button class="btn-info" onclick="location.href='/allergyReport';">Who has nothing recorded?</button>
+		</ul>
 	</div><br>
 	@include('partials.footer')
 </body>

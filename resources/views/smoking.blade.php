@@ -114,7 +114,7 @@
 			</table>
 		</div>
 	</div>
-	<div class="well-lg">
+	<div class="well-sm">
 		<button id="btnPrint" class="btn-success">Print</button>
 	</div><br>
 	@include('partials.footer')

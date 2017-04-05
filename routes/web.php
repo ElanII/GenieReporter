@@ -118,3 +118,11 @@ Route::get('/drugReaction', function(){
 Route::get('/report12', function(){
 	return view('report12');
 });
+
+Route::get('/allergyReport', function(){
+	return view('statReports.allergyReport');
+});
+
+Route::get('/activepts', function(){
+	return view('RACGP.activepts');
+});

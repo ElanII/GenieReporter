@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Home</a>
+      <a class="navbar-brand" href="/">Genie Reporter</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -46,6 +46,8 @@
             <li><a href="/currentMedications">Current Medications Information Stats</a></li>
             <li><a href="/vaccinations">Vaccination Information Stats</a></li>
             <li><a href="/drugReaction">Drug Reactions for Allergies recorded</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/activepts">RACGP Active Patient Stats</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="mailto:d.manu@bhgpsc.com.au?Subject=Report%20Request:">Request for additional Reports</a></li>
           </ul>
