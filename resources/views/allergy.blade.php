@@ -60,6 +60,7 @@
 	} catch (PDOException $e) {
 		echo 'Database Error:'.$e;
 	}
+	$db = null;
 
 	$results_array3 = $stmt3->fetchAll();
 	//echo '<pre>' . var_export($results_array3, true) . '</pre>';

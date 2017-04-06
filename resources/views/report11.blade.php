@@ -60,6 +60,7 @@
 	} catch (PDOException $e) {
 		echo 'Database Error Second Query:'.$e;
 	}
+	$db = null;
 	$results_array = $stmt->fetchAll();
 
 		// Printing the Content Table.

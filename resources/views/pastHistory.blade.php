@@ -46,6 +46,7 @@
 	} catch (PDOException $e) {
 		echo 'Database Error:'.$e;
 	}
+	$db = null;
 
 	$results_array2 = $stmt2->fetchAll();
 	$hasHistory = count($results_array2); // Has History

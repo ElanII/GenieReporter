@@ -88,6 +88,7 @@
 	} catch (PDOException $e) {
 		echo 'Database Error:'.$e;
 	}
+	$db = null;
 
 	$results_array5 = $stmt5->fetchAll();
 	$something = count($results_array5);

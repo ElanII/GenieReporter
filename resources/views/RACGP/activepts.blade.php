@@ -81,6 +81,7 @@
 		} catch (PDOException $e2) {
 			echo "Problem with initial database query:".$e2;
 		}
+		$db = null;
 		$results_array2 = $stmt2->fetchAll();
 		foreach ($results_array2 as $value) {
 			$SMO[] = $value['SMOKINGFREQ'];

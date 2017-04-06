@@ -63,6 +63,7 @@
 	} catch (PDOException $e) {
 		echo 'Database Error:'.$e;
 	}
+	$db = null;
 
 	$results_array3 = $stmt3->fetchAll();
 	$overAge = count($results_array3);

@@ -26,6 +26,7 @@
 	} catch (PDOException $e) {
 		echo 'Database Error:'.$e;
 	}
+	$db = null;
 
 $results_array = $stmt->fetchAll();
 	echo '<div class="container-fluid">';

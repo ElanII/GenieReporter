@@ -44,6 +44,7 @@
 	} catch (PDOException $e) {
 		echo 'Database Error:'.$e;
 	}
+	$db = null;
 
 	$results_array2 = $stmt2->fetchAll();
 	$ptsWithFamilyHistory = count($results_array2);

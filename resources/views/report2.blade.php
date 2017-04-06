@@ -47,6 +47,7 @@
 	} catch (PDOException $e) {
 		echo 'Database Error Second Query:'.$e;
 	}
+	$db = null;
 
 $results_array = $stmt->fetchAll();
 	echo '<div class="container-fluid">';

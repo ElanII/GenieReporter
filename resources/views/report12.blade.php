@@ -47,6 +47,7 @@
 		
 
 		$results_array = $stmt->fetchAll();
+		$db = null;
 	?>
 
 	{{-- Table Section --}}
