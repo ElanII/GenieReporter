@@ -6,10 +6,6 @@
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<link href="style.css" media="all" rel="stylesheet">
 <?php
-
-	// $dsn = '4D:host=10.10.10.153;port=19812;charset=UTF-8';
-	// $user = 'rec3';
-	// $pass = 'biancarec3';
 	
 	$dsn = Config::get('constants.dsn');
 	$user = Config::get('constants.user');
