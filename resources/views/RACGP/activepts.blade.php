@@ -93,63 +93,65 @@
 	?>
 
 
-	{{-- Table Section --}}
-	<div class="well-sm">
-		<table class="table table-responsive table-bordered">
-			<thead>
-				<th>RACGP Total Active Patient Count (Minimum of 3 consults in the last 2 years)</th>
-				<th>{{$racgpActivePts}}</th>
-			</thead>
-		</table>
-	</div>
+	<div class="container-fluid">
+		{{-- Table Section --}}
+		<div class="well-sm">
+			<table class="table table-responsive table-bordered">
+				<thead>
+					<th>RACGP Total Active Patient Count (Minimum of 3 consults in the last 2 years)</th>
+					<th>{{$racgpActivePts}}</th>
+				</thead>
+			</table>
+		</div>
 
-	{{-- Table Section --}}
-	<div class="well-sm">
-		<table class="table table-responsive table-bordered">
-			<thead>
-				<th>Total Active Patient count according to Genie (Marked as ACTIVE)</th>
-				<th>{{count($results_array1)}}</th>
-			</thead>
-		</table>
-	</div>
+		{{-- Table Section --}}
+		<div class="well-sm">
+			<table class="table table-responsive table-bordered">
+				<thead>
+					<th>Total Active Patient count according to Genie (Marked as ACTIVE)</th>
+					<th>{{count($results_array1)}}</th>
+				</thead>
+			</table>
+		</div>
 
-	{{-- Table Section --}}
-	<div class="well-sm">
-		<table class="table table-responsive table-bordered">
-			<h4>Post Code Breakdown of Active Patients</h4>
-			<thead>
-				<th>Postcode</th>
-				<th>Patient Count ( > 4 )</th>
-			</thead>
-			<tbody>
-				@foreach ($filtered1 as $key => $element)
-				<tr>
-					<td>{{$key}}</td>
-					<td>{{$element}}</td>
-				</tr>
-				@endforeach
-			</tbody>
-		</table>
-	</div>
+		{{-- Table Section --}}
+		<div class="well-sm">
+			<table class="table table-responsive table-bordered">
+				<h4>Post Code Breakdown of Active Patients</h4>
+				<thead>
+					<th>Postcode</th>
+					<th>Patient Count ( > 4 )</th>
+				</thead>
+				<tbody>
+					@foreach ($filtered1 as $key => $element)
+					<tr>
+						<td>{{$key}}</td>
+						<td>{{$element}}</td>
+					</tr>
+					@endforeach
+				</tbody>
+			</table>
+		</div>
 
 
-	{{-- Table Section --}}
-	<div class="well-sm">
-		<table class="table table-responsive table-bordered">
-			<h4>Smoking Frequency Breakdown of Active Patients</h4>
-			<thead>
-				<th>Smokes per Day</th>
-				<th>Patient Count</th>
-			</thead>
-			<tbody>
-				@foreach ($filtered2 as $key => $element)
-				<tr>
-					<td>{{$key}}</td>
-					<td>{{$element}}</td>
-				</tr>
-				@endforeach
-			</tbody>
-		</table>
+		{{-- Table Section --}}
+		<div class="well-sm">
+			<table class="table table-responsive table-bordered">
+				<h4>Smoking Frequency Breakdown of Active Patients</h4>
+				<thead>
+					<th>Smokes per Day</th>
+					<th>Patient Count</th>
+				</thead>
+				<tbody>
+					@foreach ($filtered2 as $key => $element)
+					<tr>
+						<td>{{$key}}</td>
+						<td>{{$element}}</td>
+					</tr>
+					@endforeach
+				</tbody>
+			</table>
+		</div>
 	</div>
 
 
