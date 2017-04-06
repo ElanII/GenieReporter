@@ -11,9 +11,9 @@
 	// $user = 'rec3';
 	// $pass = 'biancarec3';
 	
-	$dsn = '4D:host=10.10.10.26;port=19812;charset=UTF-8';
-	$user = 'Back Office User';
-	$pass = 'bianca';
+	$dsn = Config::get('constants.dsn');
+	$user = Config::get('constants.user');
+	$pass = Config::get('constants.pass');
 
 	// Connection to the server
 	$db = new PDO($dsn,$user,$pass);
