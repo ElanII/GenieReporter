@@ -45,6 +45,7 @@
 		} catch (PDOException $e) {
 			echo 'Database Error Second Query:'.$e;
 		}
+		$db = null;
 
 		
 

@@ -36,7 +36,7 @@
             <li><a href="/report2">Hypertension NOT Seen</a></li>
             <li><a href="/report0">Test Mouse (Testing Connectivity)</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="/allergy">Allegy Stats</a></li>
+            <li><a href="/allergy">Allergy Stats</a></li>
             <li><a href="/familyHistory">Family History Stats</a></li>
             <li><a href="/riskFactors">Alcohol Information Stats</a></li>
             <li><a href="/smoking">Smoking Information Stats</a></li>

@@ -93,12 +93,12 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>Nothing Recorded (Smoking Freq is Zero AND No Smoking info at all)</td>
+						<td>Nothing Recorded (<b>Smoking status</b> NOT selected AND No <b>Smoking info</b> at all)</td>
 						<td>{{$ptsWithout}}</td>
 						<td>{{$ptsWithout / $activePatients * 100}} %</td>
 					</tr>
 					<tr>
-						<td>Smoking Frequency not Zero OR Some information in Smoking Info</td>
+						<td>Smoking Status has been selected OR Some information in Smoking Info</td>
 						<td>{{$ptsWithFamilyHistory}}</td>
 						<td>{{$ptsWithFamilyHistory / $activePatients * 100}} %</td>
 					</tr>

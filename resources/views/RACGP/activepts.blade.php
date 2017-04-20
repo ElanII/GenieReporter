@@ -140,13 +140,37 @@
 			<table class="table table-responsive table-bordered">
 				<h4>Smoking Frequency Breakdown of Active Patients</h4>
 				<thead>
-					<th>Smokes per Day</th>
+					<th>Smoking Freq Indicator</th>
+					<th>Smoking Status</th>
 					<th>Patient Count</th>
 				</thead>
 				<tbody>
 					@foreach ($filtered2 as $key => $element)
 					<tr>
 						<td>{{$key}}</td>
+						<td><?php switch ($key) {
+							case '0':
+								$stat = 'No Info (No smoking status selected)';
+								break;
+							case '1':
+								$stat = 'Daily';
+								break;
+							case '2':
+								$stat = 'Weekly';
+								break;
+							case '3':
+								$stat = 'Irregular';
+								break;
+							case '4':
+								$stat = 'Ex-smoker';
+								break;
+							case '5':
+								$stat = 'Never Smoked';
+								break;
+							default:
+								$stat = 'Error';
+								break;
+						}?>{{$stat}}</td>
 						<td>{{$element}}</td>
 					</tr>
 					@endforeach
