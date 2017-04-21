@@ -78,9 +78,28 @@
                 font-weight: 200; font-size: 34px;">
 			Genie Reporter - Smoking Information Stats.
 		</div>
-
-		<div class="panel-info" id="familyHistoryChart" style="min-width: 310px; height: 40%; max-width: 40%; margin: 10 auto">
-			
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="panel-info" id="familyHistoryChart" style="min-width: 310px; height: 50%; max-width: 80%; margin: 10 auto"></div>
+				</div>
+				<div class="col-lg-6">
+					<div class="panel-primary panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">&spades; Information</h3>
+						</div>
+						<div class="panel-body">
+							<li class="list-group-item"><b>RACGP minimum requirement:</b> 75% of patients must have some form of smoking information on record</li>
+							<li class="list-group-item"><b>Genie Record Keeping</b>
+								<ul>
+									<li>Smoking Status: Drop down menu in clinical view above "prescriptions/scripts"</li>
+									<li>Smoking Info: Text box to enter details</li>
+								</ul>
+							</li>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="panel-info table-responsive">
 			<table class="table table-striped table-bordered">
@@ -93,7 +112,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>Nothing Recorded (<b>Smoking status</b> NOT selected AND No <b>Smoking info</b> at all)</td>
+						<td>Nothing Recorded (<b>Smoking status NOT selected</b> AND <b>Nothing in Smoking info</b>)</td>
 						<td>{{$ptsWithout}}</td>
 						<td>{{$ptsWithout / $activePatients * 100}} %</td>
 					</tr>

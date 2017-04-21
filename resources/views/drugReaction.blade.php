@@ -76,8 +76,28 @@
                 font-weight: 200; font-size: 34px;">
 			Genie Reporter - Drug Reactions for Drugs recorded as Allergies.
 		</div>
-		<div class="panel-info" id="familyHistoryChart" style="min-width: 310px; height: 40%; max-width: 40%; margin: 10 auto">
-			
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="panel-info" id="familyHistoryChart" style="min-width: 310px; height: 50%; max-width: 80%; margin: 10 auto"></div>
+				</div>
+				<div class="col-lg-6">
+					<div class="panel-primary panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">&spades; Information</h3>
+						</div>
+						<div class="panel-body">
+							<li class="list-group-item"><b>RACGP minimum requirement:</b> 75% Drug related Allergies must have a Reaction on record</li>
+							<li class="list-group-item"><b>Genie Record Keeping</b>
+								<ul>
+									<li>Allergies: Small window to the top left on the clinical view</li>
+									<li>If you insert a Medication as an allergy, it must have a reaction such as "rash" with it</li>
+								</ul>
+							</li>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="panel-info table-responsive">
 			<table class="table table-striped table-bordered">
