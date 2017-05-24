@@ -48,8 +48,26 @@
             <li><a href="/drugReaction">Drug Reactions for Allergies recorded</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="/activepts">RACGP Active Patient Stats</a></li>
+            <li><a href="/myhr">My Health Record</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="mailto:d.manu@bhgpsc.com.au?Subject=Report%20Request:">Request for additional Reports</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Today <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/todayAll">Patients with Appointments today</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/myhrYES">My Health Record available</a></li>
+            <li><a href="/myhrNO">My Health Record NOT available</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="mailto:d.manu@bhgpsc.com.au?Subject=Report%20Request:">Request for additional Reports</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Search <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/apptSearch">Appointments (Under Construction)</a></li>
           </ul>
         </li>
       </ul>

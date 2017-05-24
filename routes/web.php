@@ -126,3 +126,24 @@ Route::get('/allergyReport', function(){
 Route::get('/activepts', function(){
 	return view('RACGP.activepts');
 });
+
+
+Route::get('/myhr', function(){
+	return view('report14');
+});
+
+Route::get('/todayAll', function(){
+	return view('report15');
+});
+
+Route::get('/myhrYES', function(){
+	return view('report16');
+});
+
+Route::get('/myhrNO', function(){
+	return view('report17');
+});
+
+Route::get('/apptSearch', function(){
+	return view('apptSearch');
+});
