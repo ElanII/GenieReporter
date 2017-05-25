@@ -67,7 +67,20 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Search <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/apptSearch">Appointments (Under Construction)</a></li>
+            <li><a href="/apptSearch">Appointments (Patients with MyHR)</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Health Record <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/myhrYES">Today's appointments</a></li>
+            <li><a href="/apptSearch">Search by Provider (Patients with MyHR)</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SHS <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/shsSearch">Shared Health Summary Search</a></li>
           </ul>
         </li>
       </ul>

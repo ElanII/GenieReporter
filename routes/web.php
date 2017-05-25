@@ -155,5 +155,13 @@ Route::get('/results1', function(){
 Route::post('/results1', 
   ['as' => 'results1', 'uses' => 'results1Controller@create']);
 
+Route::get('/shsSearch', function(){
+	return view('shsSearch');
+});
 
+Route::post('/shsSearch', 
+  ['as' => 'shsSearch', 'uses' => 'results2Controller@create']);
 
+Route::get('/shsResults', function(){
+	return view('shsResults');
+});
