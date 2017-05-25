@@ -19,7 +19,7 @@
 
 
 	// Looking for PT IDs for patients with Sale ItemNum within time frame.
-	$sql0 = "SELECT PT_Id_Fk FROM Sale WHERE ItemNum IN ('721','723','732') AND ServiceDate >= :YearAgo";
+	$sql0 = "SELECT PT_Id_Fk FROM Sale WHERE ItemNum IN ('11506') AND ServiceDate >= :YearAgo";
 	try {
 		$stmt0 = $db->prepare($sql0);
 		$stmt0->execute([':YearAgo'=> $YearAgo]);

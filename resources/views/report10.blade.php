@@ -19,7 +19,7 @@
 
 
 	// Looking for PT IDs for patients with Sale ItemNum within time frame.
-	$sql0 = "SELECT PT_Id_Fk FROM Sale WHERE ItemNum IN ('721','723','732') AND ServiceDate >= :YearAgo";
+	$sql0 = "SELECT PT_Id_Fk FROM Sale WHERE ItemNum IN ('11610') AND ServiceDate >= :YearAgo";
 	try {
 		$stmt0 = $db->prepare($sql0);
 		$stmt0->execute([':YearAgo'=> $YearAgo]);
@@ -64,7 +64,7 @@
 	$results_array = $stmt->fetchAll();
 
 		// Printing the Content Table.
-		echo '<div class="container container-fluid">';
+		echo '<div class="container-fluid">';
 		echo '<div class="panel panel-default">';
 		echo '<div class="panel-heading"><b>'.'Chronic Condition with No Care Plan in the last 12months (Diabetes)'.'</b></div>';
 ?>
