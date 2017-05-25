@@ -147,3 +147,13 @@ Route::get('/myhrNO', function(){
 Route::get('/apptSearch', function(){
 	return view('apptSearch');
 });
+
+Route::get('/results1', function(){
+	return view('results1');
+});
+
+Route::post('/results1', 
+  ['as' => 'results1', 'uses' => 'results1Controller@create']);
+
+
+

@@ -28,12 +28,12 @@
             <li><a href="/report6">75 YO HA</a></li>
             <li><a href="/report7">45 to 49 YO HA</a></li>
             <li><a href="/report12">45 to 49 YO CP</a></li>
-            <li><a href="/report8">Asthma No CP (SLOW)</a></li>
-            <li><a href="/report9">Hypertension No CP (SLOW)</a></li>
-            <li><a href="/report10">Diabetes No CP (SLOW)</a></li>
+            <li><a href="/report8">Asthma/Spyro No CP (SLOW)</a></li>
+            <li><a href="/report9">Hypertension/ECG No CP (SLOW)</a></li>
+            <li><a href="/report10">Diabetes/ABI No CP (SLOW)</a></li>
             <li><a href="/report11">CP Not reviewed</a></li>
             <li><a href="/report1">50 YO Not Seen</a></li>
-            <li><a href="/report2">Hypertension NOT Seen</a></li>
+            <li><a href="/report2">Hypertension/ECG NOT Seen</a></li>
             <li><a href="/report0">Test Mouse (Testing Connectivity)</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="/allergy">Allergy Stats</a></li>
