@@ -64,7 +64,7 @@
 	$results_array = $stmt->fetchAll();
 
 		// Printing the Content Table.
-		echo '<div class="container container-fluid">';
+		echo '<div class="container-fluid">';
 		echo '<div class="panel panel-default">';
 		echo '<div class="panel-heading"><b>'.'Care Plans that have not been reviewed in the last 3months (732 without 721/723)'.'</b></div>';
 

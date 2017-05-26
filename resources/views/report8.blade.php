@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	@include('partials.header',['title'=>"Asthma No CP"])
+	@include('partials.header',['title'=>"Asthma No SPYRO"])
 </head>
 <body>
 	@include('partials.sidebar')
@@ -66,7 +66,7 @@
 		// Printing the Content Table.
 		echo '<div class="container-fluid">';
 		echo '<div class="panel panel-default">';
-		echo '<div class="panel-heading"><b>'.'Chronic Condition with No Care Plan in the last 12months (Asthma)'.'</b></div>';
+		echo '<div class="panel-heading"><b>'.'Chronic Condition with No Care Plan in the last 12months (Asthma but no SPYRO)'.'</b></div>';
 
 ?>
 	@include('partials.tableS')
