@@ -32,7 +32,7 @@ foreach ($results_array as $value) {
 	echo '<tr>';
 	
 	echo '<td>'.$value['INACTIVE'].'</td>';
-	echo '<td>'.$value['SURNAME'].'</td>';
+	echo '<td><a target="_blank" href=/summary?id={{$value['ID']}}>'.$value['SURNAME'].'</a></td>';
 	echo '<td>'.$value['FIRSTNAME'].'</td>';
 	echo '<td>'.$DOB.'</td>';
 	echo '<td>'.$value['CHARTORNHS'].'</td>';

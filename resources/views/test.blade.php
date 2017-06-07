@@ -19,7 +19,7 @@
 	$db = new PDO($dsn,$user,$pass);
 
 	// Creating the SQL statement
-	$sql = 'SELECT FullName,FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS FROM Patient WHERE Surname=\'mouse\'';
+	$sql = 'SELECT Id,FullName,FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS FROM Patient WHERE Surname=\'mouse\'';
 	$stmt = $db->prepare($sql);
 	$stmt->execute();
 	$results_array = $stmt->fetchAll();

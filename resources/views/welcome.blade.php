@@ -85,7 +85,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Genie Reporter
+                    Genie Reporter <br>
+                    {{Config::get('constants.clinic')}}
                 </div>
 
                 {{-- <div class="links">

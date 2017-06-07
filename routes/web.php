@@ -165,3 +165,8 @@ Route::post('/shsSearch',
 Route::get('/shsResults', function(){
 	return view('shsResults');
 });
+
+
+Route::get('/summary', function(){
+	return view('patient/summary');
+});

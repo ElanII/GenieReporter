@@ -50,7 +50,7 @@
 							?>
 							<tr>
 								<td>{{$value['INACTIVE']}}</td>
-								<td>{{$value['SURNAME']}}</td>
+								<td><a target="_blank" href=/summary?id={{$value['ID']}}>{{$value['SURNAME']}}</a></td>
 								<td>{{$value['FIRSTNAME']}}</td>
 								<td>{{$DOB}}</td>
 								<td>{{$value['CHARTORNHS']}}</td>

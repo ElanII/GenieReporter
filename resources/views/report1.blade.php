@@ -17,7 +17,7 @@
 	// Creating the SQL statement
 	// 50 Year olds who have not been seen in the past 12 months.
 	$YearAgo = date("Y-m-d H:i:s",strtotime('-13 month'));
-	$sql1 = "SELECT FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS,Age,Inactive FROM Patient WHERE Age>=50 AND Postcode LIKE '%2880%' AND LastSeenDate <= :YearAgo";
+	$sql1 = "SELECT Id,FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS,Age,Inactive FROM Patient WHERE Age>=50 AND Postcode LIKE '%2880%' AND LastSeenDate <= :YearAgo";
 	//echo $sql1;
 	//$sql = 'SELECT FullName,FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS FROM Patient WHERE Surname=\'mouse\'';
 	try {
