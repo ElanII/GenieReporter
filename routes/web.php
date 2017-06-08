@@ -170,3 +170,12 @@ Route::get('/shsResults', function(){
 Route::get('/summary', function(){
 	return view('patient/summary');
 });
+
+Route::get('/summaryModal', function(){
+	return view('patient/summaryModal');
+});
+
+
+Route::get('/api', function(){
+	return view('patient/api');
+});

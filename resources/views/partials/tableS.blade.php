@@ -32,7 +32,13 @@ foreach ($results_array as $value) {
 	echo '<tr>';
 	
 	echo '<td>'.$value['INACTIVE'].'</td>';
-	echo '<td><a target="_blank" href=/summary?id={{$value['ID']}}>'.$value['SURNAME'].'</a></td>';
+	echo "<td><a  
+				data-toggle='modal' 
+				data-id='".$value['ID']."'
+				data-name='".$value['SURNAME'].", ".$value['FIRSTNAME']."'
+				data-target='#patientModal'
+				href='patient/summaryModal' 
+				>".$value['SURNAME']."</a></td>";
 	echo '<td>'.$value['FIRSTNAME'].'</td>';
 	echo '<td>'.$DOB.'</td>';
 	echo '<td>'.$value['CHARTORNHS'].'</td>';
@@ -47,6 +53,53 @@ foreach ($results_array as $value) {
 	echo '</div>';
 	echo '</div>';
 	echo '</div>';
+	echo "
+		<script type='text/javascript'>
+			$(function() {
+		    $('#patientModal').on('show.bs.modal', function (e) {
+			     $('#patientModalLabel').html($(e.relatedTarget).data('name'));
+			     $('#fav-id').html($(e.relatedTarget).data('id'));
+			     var rowid = $(e.relatedTarget).data('id');
+		        $.ajax({
+		            type : 'GET',
+		            url : 'api', //Here you will fetch records 
+		            data :  'id='+ rowid, 
+		            success : function(data){
+		            $('#fav-body').html(data);//Show fetched data from database
+		            }
+		        });
+		    });
+		});
+		</script>
+		<div class='modal fade' id='patientModal' 
+		     tabindex='-1' role='dialog' 
+		     aria-labelledby='patientModalLabel'>
+		  <div class='modal-dialog' role='document'>
+		    <div class='modal-content'>
+		      <div class='modal-header'>
+		        <button type='button' class='close' 
+		          data-dismiss='modal' 
+		          aria-label='Close'>
+		          <span aria-hidden='true'>&times;</span></button>
+		        <h4 class='modal-title' 
+		        id='patientModalLabel'>Patient Summary</h4>
+		      </div>
+		      <div class='modal-body' id='fav-body'>
+		        <p>
+		        Patient details
+		        <b><span id='fav-title'>Searching...</span></b>
+		        </p>
+		        
+		      </div>
+		      <div class='modal-footer'>
+		        <button type='button' 
+		           class='btn btn-default' 
+		           data-dismiss='modal'>Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	";
 $db = null;
 ?>
 
