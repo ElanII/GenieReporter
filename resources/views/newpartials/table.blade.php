@@ -87,6 +87,9 @@
             }
         });
     });
+    $('#patientModal').on('hidden', function() {
+	    $(this).removeData('modal');
+	});
 });
 </script>
 <div class="modal fade" id="patientModal" 

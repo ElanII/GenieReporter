@@ -54,7 +54,7 @@
             'pdfFlash'
             ],
             "iDisplayLength": 25,
-            "aaSorting" : [[1, "desc"]],
+            "aaSorting" : [[1, "asc"]],
             "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
                 if ( aData[0] == "1" )
                 {

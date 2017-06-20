@@ -15,9 +15,10 @@ if(isset($_GET['id'])) {
       $db = new PDO($dsn,$user,$pass);
 
       // Creating the SQL statement
-      // 50 Year olds who have not been seen in the past 12 months.
+      date_default_timezone_set('Australia/Darwin');
       $YearAgo = date("Y-m-d H:i:s",strtotime('-13 month'));
-      $sql1 = "SELECT Id,FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS,Age,Inactive FROM Patient WHERE Id =".$ptId." ";
+      $today = date("Y-m-d");
+      $sql1 = "SELECT Id,FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS,Age,Inactive,EmailAddress FROM Patient WHERE Id =".$ptId."";
       //echo $sql1;
       //$sql = 'SELECT FullName,FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS FROM Patient WHERE Surname=\'mouse\'';
       try {
@@ -26,6 +27,36 @@ if(isset($_GET['id'])) {
       } catch (PDOException $e) {
         echo 'Database Error:'.$e;
       }
+
+      $sql2 = "SELECT StartDate,ProviderName,StartTime FROM Appt WHERE StartDate >= :today AND PT_Id_Fk=".$ptId." ORDER BY 1";
+      try {
+          $stmt2 = $db->prepare($sql2);
+          $stmt2->execute([':today'=> $today]);
+        } catch (PDOException $e) {
+          echo 'Database Error:'.$e;
+        }
+      $appts = $stmt2->fetchAll();
+      if (count($appts)==0) {
+        $STD = "NO FUTURE APPTS";
+        $PNAME = "NO FUTURE APPTS";
+        $ATIME = "NO FUTURE APPTS";
+      } else {
+        $appt = $appts[0];
+        $STD = substr($appt['STARTDATE'], 0,strrpos($appt['STARTDATE'], ' '));
+        $STD = date('d-m-Y',strtotime($STD));
+        $PNAME = $appt['PROVIDERNAME'];
+
+        date_default_timezone_set('Australia/Darwin');
+        $ATIME = gmdate('H:i', $appt['STARTTIME']/1000);
+        //$ATIME = $appt['STARTTIME']/1000;
+      }
+      
+      
+      
+      
+      
+
+
       $db = null;
 
     $results_array = $stmt->fetchAll();
@@ -71,6 +102,22 @@ if(isset($_GET['id'])) {
             <tr>
               <td>Age</td>
               <td>".$patient['AGE']."</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td><a href='mailto:".$patient['EMAILADDRESS']."' target='_top'>".$patient['EMAILADDRESS']."</a></td>
+            </tr>
+            <tr>
+              <td>Appt Provider</td>
+              <td>".$PNAME."</td>
+            </tr>
+            <tr>
+              <td>Appt Time (24HOUR)</td>
+              <td>".$ATIME."</td>
+            </tr>
+            <tr>
+              <td>Appt Date</td>
+              <td>".$STD."</td>
             </tr>
           </tbody>
         </table>

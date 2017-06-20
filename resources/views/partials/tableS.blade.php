@@ -68,8 +68,9 @@ foreach ($results_array as $value) {
 		            $('#fav-body').html(data);//Show fetched data from database
 		            }
 		        });
+		    
 		    });
-		});
+			});
 		</script>
 		<div class='modal fade' id='patientModal' 
 		     tabindex='-1' role='dialog' 
