@@ -8,6 +8,10 @@ class results2Controller extends Controller
 {
     public function create()
     {
-        return view('shsResults');
+        return view('shsResultsSMC',['clinic'=>'SMC']);
+    }
+    public function create2()
+    {
+        return view('shsResultsBHGPSC',['clinic'=>'BHGPSC']);
     }
 }

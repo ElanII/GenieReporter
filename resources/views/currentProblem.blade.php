@@ -6,10 +6,6 @@
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<link href="style.css" media="all" rel="stylesheet">
 <?php
-	
-	$dsn = Config::get('constants.dsn');
-	$user = Config::get('constants.user');
-	$pass = Config::get('constants.pass');
 
 	// Connection to the server
 	$db = new PDO($dsn,$user,$pass);

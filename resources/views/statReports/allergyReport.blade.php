@@ -12,9 +12,6 @@
 	{{-- PHP Section for Query --}}
 	<?php
 		// Defining Genie connection parameters.
-		$dsn = Config::get('constants.dsn');
-		$user = Config::get('constants.user');
-		$pass = Config::get('constants.pass');
 
 		// Connection to the server.
 		$db = new PDO($dsn,$user,$pass);
@@ -60,7 +57,7 @@
 	{{-- Buttons --}}
 	<div class="well-sm">
 		<ul>
-			<button class="btn-info" onclick="location.href='/allergy';">Back to Stats</button>
+			<button class="btn-info" onclick="location.href='/allergy/{{$clinic}}';">Back to Stats</button>
 		</ul>
 	</div>
 

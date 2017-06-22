@@ -37,7 +37,7 @@ foreach ($results_array as $value) {
 				data-id='".$value['ID']."'
 				data-name='".$value['SURNAME'].", ".$value['FIRSTNAME']."'
 				data-target='#patientModal'
-				href='patient/summaryModal' 
+				href='#' 
 				>".$value['SURNAME']."</a></td>";
 	echo '<td>'.$value['FIRSTNAME'].'</td>';
 	echo '<td>'.$DOB.'</td>';
@@ -62,8 +62,8 @@ foreach ($results_array as $value) {
 			     var rowid = $(e.relatedTarget).data('id');
 		        $.ajax({
 		            type : 'GET',
-		            url : 'api', //Here you will fetch records 
-		            data :  'id='+ rowid, 
+		            url : '/api".$clinic."', //Here you will fetch records 
+		            data :  'id='+ rowid,
 		            success : function(data){
 		            $('#fav-body').html(data);//Show fetched data from database
 		            }

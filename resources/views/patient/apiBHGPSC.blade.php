@@ -2,6 +2,7 @@
 //Include database connection
 if(isset($_GET['id'])) {
     $id = $_GET['id']; //escape string
+    
     // Run the Query
     
     

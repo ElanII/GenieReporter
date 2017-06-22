@@ -7,9 +7,7 @@
 	<link href="style.css" media="all" rel="stylesheet">
 <?php
 	
-	$dsn = Config::get('constants.dsn');
-	$user = Config::get('constants.user');
-	$pass = Config::get('constants.pass');
+
 
 	// Connection to the server
 	$db = new PDO($dsn,$user,$pass);
@@ -156,7 +154,7 @@
 	<div class="well-sm">
 		<ul>
 			<button id="btnPrint" class="btn-success">Print</button>
-			<button class="btn-info" onclick="location.href='/allergyReport';">Who has nothing recorded?</button>
+			<button class="btn-info" onclick="location.href='/allergyReport/{{$clinic}}';">Who has nothing recorded?</button>
 		</ul>
 	</div><br>
 	@include('partials.footer')

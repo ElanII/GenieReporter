@@ -5,13 +5,11 @@
 </head>
 <body>
 	@include('partials.sidebar')
-<?php
-
-	$dsn = Config::get('constants.dsn');
-	$user = Config::get('constants.user');
-	$pass = Config::get('constants.pass');
+@php
 
 	// Connection to the server
+	
+	// Defining Genie connection parameters.
 	$db = new PDO($dsn,$user,$pass);
 
 	// Creating the SQL statement
@@ -33,7 +31,7 @@ $results_array = $stmt->fetchAll();
 	echo '<div class="panel panel-default">';
 	echo '<div class="panel-heading"><b>'.'Patients with the Surname MOUSE'.'</b></div>';
 
-?>
+@endphp
 	@include('partials.tableS')
 </body>
 </html>

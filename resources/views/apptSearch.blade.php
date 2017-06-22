@@ -13,9 +13,6 @@
 	{{-- PHP Section for Query --}}
 	<?php
 		// Defining Genie connection parameters.
-		$dsn = Config::get('constants.dsn');
-		$user = Config::get('constants.user');
-		$pass = Config::get('constants.pass');
 
 		// Connection to the server.
 		$db = new PDO($dsn,$user,$pass);
@@ -51,7 +48,7 @@
 			<div class="panel-heading">Search for Appointments (Patients with MyHR)</div>
 			<div class="panel-body">
 				<div class="form-group">
-				{{ Form::open(array('route' => 'results1')) }}
+				{{ Form::open(array('route' => 'results1'.$clinic)) }}
 					<div class="input-group well-sm">
 						<span class="input-group-addon">Provider Name</span>
 						{{-- {{ Form::input('text', 'providerName', null, ['class' => 'form-control']) }} --}}

@@ -1,7 +1,7 @@
 
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Genie Reporter - {{Config::get('constants.clinic')}} - {{$title}}</title>
+<title>Genie Reporter - {{$clinic}} - {{$title}}</title>
 <link rel="shortcut icon" type="image/png" href="/media/images/favicon.png">
 <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
 <link rel="stylesheet" type="text/css" href="/media/css/site-examples.css?_=b05357026107a2e3ca397f642d976192">

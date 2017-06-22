@@ -55,7 +55,7 @@
 								data-id="{{$value['ID']}}"
 								data-name="{{$value['SURNAME']}}, {{$value['FIRSTNAME']}}"
 								data-target="#patientModal"
-								href="patient/summaryModal" 
+								href="#" 
 								>{{$value['SURNAME']}}</a></td>
 								<td>{{$value['FIRSTNAME']}}</td>
 								<td>{{$DOB}}</td>
@@ -80,7 +80,7 @@
 	     var rowid = $(e.relatedTarget).data('id');
         $.ajax({
             type : 'GET',
-            url : 'api', //Here you will fetch records 
+            url : '/api{{$clinic}}', //Here you will fetch records 
             data :  'id='+ rowid, //Pass $id
             success : function(data){
             $('#fav-body').html(data);//Show fetched data from database
