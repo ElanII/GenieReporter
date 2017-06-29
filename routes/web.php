@@ -12,6 +12,17 @@
 */
 
 
+
+
+
+
+
+
+/**
+ * These are the Routes used to generate information
+ * for the 'modal' views, found within the partials.TableS and
+ * newpartials.Table.
+ */
 Route::get('/apiBHGPSC', function(){
 	return view('patient/apiBHGPSC');
 });
@@ -19,6 +30,13 @@ Route::get('/apiBHGPSC', function(){
 Route::get('/apiSMC', function(){
 	return view('patient/apiSMC');
 });
+// *********************************************************
+
+
+Route::get('/', function () {
+	return view('selectClinic');
+});
+
 
 Route::get('/{siteName}', function ($siteName) {
 	if ($siteName=='SMC' || $siteName=='smc') {
@@ -31,9 +49,7 @@ Route::get('/{siteName}', function ($siteName) {
 		$user = Config::get('constants.user');
 		$pass = Config::get('constants.pass');
 		$clinic = Config::get('constants.clinic');
-	} else {
-		return view('patient/api');
-	}
+	} 
 	
 	return view('welcome', compact('dsn','user','pass','clinic'));
 });
@@ -627,16 +643,112 @@ Route::get('/diabSearch/{siteName}', function($siteName){
 	return view('diabSearch', compact('dsn','user','pass','clinic'));
 });
 
+/**
+ * Results pages for Search Results. The search page carries
+ * the FORM element that points to only one of the below Results
+ * pages, depending on the $clinic variable of that page.
+ */
 Route::get('/diab1BHGPSC', function(){
-	return view('diab1BHGPSC');
+	return view('diab1BHGPSC'); 
 });
 
 Route::get('/diab1SMC', function(){
 	return view('diab1SMC');
 });
 
-Route::post('/diab1BHGPSC', 
+Route::post('/diab1BHGPSC', // Form if POST to this Route.
   ['as' => 'diab1BHGPSC', 'uses' => 'diab1Controller@create2']);
+  // Look for this CONTROLLER@FUNCTION in 'app/Http/Controllers/' 
 
-Route::post('/diab1SMC', 
+Route::post('/diab1SMC', // Form if POST to this Route.
   ['as' => 'diab1SMC', 'uses' => 'diab1Controller@create']);
+// ***********************************
+
+
+/**
+ * View Page that identifies the Clinic from end of URL and
+ * uses the respective DB connection settings. Search pages
+ * are the same, they will additionally have a FORM element
+ * that POST to 2 different Results pages as seen above.
+ */
+Route::get('/diabAll/{siteName}', function($siteName){
+	if ($siteName=='SMC' || $siteName=='smc') {
+		$dsn = Config::get('constants.dsn1');
+		$user = Config::get('constants.user1');
+		$pass = Config::get('constants.pass1');
+		$clinic = Config::get('constants.clinic1');
+		// Look for these variables inside 'config/constants.php'
+	} elseif ($siteName=='BHGPSC' || $siteName=='bhgpsc') {
+		$dsn = Config::get('constants.dsn');
+		$user = Config::get('constants.user');
+		$pass = Config::get('constants.pass');
+		$clinic = Config::get('constants.clinic');
+	}
+	
+	return view('diabAll', compact('dsn','user','pass','clinic'));
+});
+// *******************************************************
+
+Route::get('/ha4549/{siteName}', function($siteName){
+	if ($siteName=='SMC' || $siteName=='smc') {
+		$dsn = Config::get('constants.dsn1');
+		$user = Config::get('constants.user1');
+		$pass = Config::get('constants.pass1');
+		$clinic = Config::get('constants.clinic1');
+	} elseif ($siteName=='BHGPSC' || $siteName=='bhgpsc') {
+		$dsn = Config::get('constants.dsn');
+		$user = Config::get('constants.user');
+		$pass = Config::get('constants.pass');
+		$clinic = Config::get('constants.clinic');
+	}
+	
+	return view('ha4549', compact('dsn','user','pass','clinic'));
+});
+
+Route::get('/ha75/{siteName}', function($siteName){
+	if ($siteName=='SMC' || $siteName=='smc') {
+		$dsn = Config::get('constants.dsn1');
+		$user = Config::get('constants.user1');
+		$pass = Config::get('constants.pass1');
+		$clinic = Config::get('constants.clinic1');
+	} elseif ($siteName=='BHGPSC' || $siteName=='bhgpsc') {
+		$dsn = Config::get('constants.dsn');
+		$user = Config::get('constants.user');
+		$pass = Config::get('constants.pass');
+		$clinic = Config::get('constants.clinic');
+	}
+	
+	return view('ha75', compact('dsn','user','pass','clinic'));
+});
+
+Route::get('/haATSI/{siteName}', function($siteName){
+	if ($siteName=='SMC' || $siteName=='smc') {
+		$dsn = Config::get('constants.dsn1');
+		$user = Config::get('constants.user1');
+		$pass = Config::get('constants.pass1');
+		$clinic = Config::get('constants.clinic1');
+	} elseif ($siteName=='BHGPSC' || $siteName=='bhgpsc') {
+		$dsn = Config::get('constants.dsn');
+		$user = Config::get('constants.user');
+		$pass = Config::get('constants.pass');
+		$clinic = Config::get('constants.clinic');
+	}
+	
+	return view('haATSI', compact('dsn','user','pass','clinic'));
+});
+
+Route::get('/bd70/{siteName}', function($siteName){
+	if ($siteName=='SMC' || $siteName=='smc') {
+		$dsn = Config::get('constants.dsn1');
+		$user = Config::get('constants.user1');
+		$pass = Config::get('constants.pass1');
+		$clinic = Config::get('constants.clinic1');
+	} elseif ($siteName=='BHGPSC' || $siteName=='bhgpsc') {
+		$dsn = Config::get('constants.dsn');
+		$user = Config::get('constants.user');
+		$pass = Config::get('constants.pass');
+		$clinic = Config::get('constants.clinic');
+	}
+	
+	return view('bd70', compact('dsn','user','pass','clinic'));
+});

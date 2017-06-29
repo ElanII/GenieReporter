@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/{{$clinic}}">Genie Reporter</a>
+      <a class="navbar-brand" href="/{{$clinic}}"><!--<img src="{{URL::asset('img/bhgpsc-icon.png')}}">-->Genie Reporter</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -65,29 +65,40 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Search <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/apptSearch/{{$clinic}}">Appointments (Patients with MyHR)</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Health Record <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">eHealth <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/myhrYES/{{$clinic}}">Today's appointments</a></li>
             <li><a href="/apptSearch/{{$clinic}}">Search by Provider (Patients with MyHR)</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SHS <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+            <li role="separator" class="divider"></li>
             <li><a href="/shsSearch/{{$clinic}}">Shared Health Summary Search</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Diabetes <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a href="/diabAll/{{$clinic}}">All diabetic patients</a></li>
             <li><a href="/diabToday/{{$clinic}}">Today's appointments</a></li>
             <li><a href="/diabSearch/{{$clinic}}">Search by Provider</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Health Assessments <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/ha4549/{{$clinic}}">45-49 year olds</a></li>
+            <li><a href="/ha75/{{$clinic}}">75+ year olds</a></li>
+            <li><a href="/haATSI/{{$clinic}}">Aboriginal & Torres Strait Islanders</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bone Density <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/bd70/{{$clinic}}">70+ not billed</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cleansing <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
           </ul>
         </li>
       </ul>
