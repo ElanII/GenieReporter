@@ -30,12 +30,69 @@ Route::get('/apiBHGPSC', function(){
 Route::get('/apiSMC', function(){
 	return view('patient/apiSMC');
 });
+
+Route::get('/saleItems', function(){
+	return view('patient/saleItems');
+});
 // *********************************************************
 
 
 Route::get('/', function () {
 	return view('selectClinic');
 });
+
+
+Route::get('/phpinfo', function(){
+	return view('phpinfo');
+});
+
+// Testing BHMC integration.
+// use App\Csvdata;
+// Route::get('/test', function(){
+// 		// Finding the GPSC Patient ID for BHMC entry.
+// 			// $dsn = Config::get('constants.dsn');
+// 			// $user = Config::get('constants.user');
+// 			// $pass = Config::get('constants.pass');
+
+// 			// Connection to the server
+// 			// $db = new PDO($dsn,$user,$pass);
+// 		if (($handle = fopen ( public_path () . '/SalesBHMC.csv', 'r' )) !== FALSE) {
+// 		while ( ($data = fgetcsv ( $handle, 1000, ',' )) !== FALSE ) {
+// 			$csv_data = new Csvdata ();
+// 			$csv_data->saleID = $data[0];
+// 			$csv_data->ITEMNUM = $data[1];
+// 			$csv_data->PT_ID_FK = $data[2];
+
+
+			
+
+// 			// Creating the SQL statement
+// 			// $sql = "SELECT Id FROM Patient WHERE Surname=".$data[6]." AND FirstName=".$data[5];
+// 			// $stmt = $db->prepare($sql);
+// 			// $stmt->execute();
+// 			// $results_array = $stmt->fetchAll();
+
+// 			// if (count($results_array)==0) {
+// 			// 	$csv_data->patientID = 0;
+// 			// } else {
+// 			// 	$csv_data->patientID = $results_array[0]['ID'];
+// 			// }
+// 			//$results_array=null;
+// 			$csv_data->patientID = 0;
+// 			$csv_data->SERVICEDATE = $data[4];
+// 			$csv_data->FIRSTNAME = $data[5];
+// 			$csv_data->SURNAME = $data[6];
+// 			$csv_data->PATIENTNAME = $data[7];
+// 			$csv_data->DOB = $data[8];
+// 			$csv_data->save ();
+// 		}
+// 		fclose ( $handle );
+// 	}
+	
+// 	//$finalData = $csv_data::all ();
+// 	$db=null;
+// 	return view('test');
+// });
 
 
 Route::get('/{siteName}', function ($siteName) {
@@ -54,13 +111,7 @@ Route::get('/{siteName}', function ($siteName) {
 	return view('welcome', compact('dsn','user','pass','clinic'));
 });
 
-Route::get('/phpinfo', function(){
-	return view('phpinfo');
-});
 
-Route::get('/test', function(){
-	return view('test');
-});
 
 Route::get('/report2/{siteName}', function($siteName){
 	if ($siteName=='SMC' || $siteName=='smc') {
@@ -752,3 +803,79 @@ Route::get('/bd70/{siteName}', function($siteName){
 	
 	return view('bd70', compact('dsn','user','pass','clinic'));
 });
+
+/**
+ * IMPORTANT: Never Load/Use this view. This is used to find 
+ * GPSC patinet IDs for BHMC patients.
+ *
+ * 
+ * View Page that identifies the Clinic from end of URL and
+ * uses the respective DB connection settings. Search pages
+ * are the same, they will additionally have a FORM element
+ * that POST to 2 different Results pages as seen above.
+ */
+Route::get('/bhmcDexa/{siteName}', function($siteName){
+	if ($siteName=='SMC' || $siteName=='smc') {
+		$dsn = Config::get('constants.dsn1');
+		$user = Config::get('constants.user1');
+		$pass = Config::get('constants.pass1');
+		$clinic = Config::get('constants.clinic1');
+		// Look for these variables inside 'config/constants.php'
+	} elseif ($siteName=='BHGPSC' || $siteName=='bhgpsc') {
+		$dsn = Config::get('constants.dsn');
+		$user = Config::get('constants.user');
+		$pass = Config::get('constants.pass');
+		$clinic = Config::get('constants.clinic');
+	}
+	
+	return view('bhmcDexa', compact('dsn','user','pass','clinic'));
+});
+// *******************************************************
+
+/**
+ * View Page that identifies the Clinic from end of URL and
+ * uses the respective DB connection settings. Search pages
+ * are the same, they will additionally have a FORM element
+ * that POST to 2 different Results pages as seen above.
+ */
+Route::get('/dexa24/{siteName}', function($siteName){
+	if ($siteName=='SMC' || $siteName=='smc') {
+		$dsn = Config::get('constants.dsn1');
+		$user = Config::get('constants.user1');
+		$pass = Config::get('constants.pass1');
+		$clinic = Config::get('constants.clinic1');
+		// Look for these variables inside 'config/constants.php'
+	} elseif ($siteName=='BHGPSC' || $siteName=='bhgpsc') {
+		$dsn = Config::get('constants.dsn');
+		$user = Config::get('constants.user');
+		$pass = Config::get('constants.pass');
+		$clinic = Config::get('constants.clinic');
+	}
+	
+	return view('dexa24', compact('dsn','user','pass','clinic'));
+});
+// *******************************************************
+
+/**
+ * View Page that identifies the Clinic from end of URL and
+ * uses the respective DB connection settings. Search pages
+ * are the same, they will additionally have a FORM element
+ * that POST to 2 different Results pages as seen above.
+ */
+Route::get('/dexa12/{siteName}', function($siteName){
+	if ($siteName=='SMC' || $siteName=='smc') {
+		$dsn = Config::get('constants.dsn1');
+		$user = Config::get('constants.user1');
+		$pass = Config::get('constants.pass1');
+		$clinic = Config::get('constants.clinic1');
+		// Look for these variables inside 'config/constants.php'
+	} elseif ($siteName=='BHGPSC' || $siteName=='bhgpsc') {
+		$dsn = Config::get('constants.dsn');
+		$user = Config::get('constants.user');
+		$pass = Config::get('constants.pass');
+		$clinic = Config::get('constants.clinic');
+	}
+	
+	return view('dexa12', compact('dsn','user','pass','clinic'));
+});
+// *******************************************************

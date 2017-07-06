@@ -89,10 +89,17 @@
             <li><a href="/haATSI/{{$clinic}}">Aboriginal & Torres Strait Islanders</a></li>
           </ul>
         </li>
-        <li class="dropdown">
+        {{-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bone Density <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/bd70/{{$clinic}}">70+ not billed</a></li>
+          </ul>
+        </li> --}}
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DEXA <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/dexa24/BHGPSC">DEXA 24 months</a></li>
+            <li><a href="/dexa12/BHGPSC">DEXA 12 months</a></li>
           </ul>
         </li>
         <li class="dropdown">
