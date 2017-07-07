@@ -68,7 +68,11 @@
                 font-weight: 100;
             }
         </style>
-        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
+        <link rel="stylesheet" type="text/css" href="@if ($clinic=='BHGPSC')
+            {{ URL::asset('css/app.css') }}
+        @else
+            {{ URL::asset('css/smc.css') }}
+        @endif">
     </head>
     <body>
         @include('partials.sidebar')

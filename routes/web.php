@@ -31,8 +31,16 @@ Route::get('/apiSMC', function(){
 	return view('patient/apiSMC');
 });
 
-Route::get('/saleItems', function(){
-	return view('patient/saleItems');
+Route::get('/apiSaleItems', function(){
+	return view('patient/apiSaleItems');
+});
+
+Route::get('/apiHABHGPSC', function(){
+	return view('patient/apiHABHGPSC');
+});
+
+Route::get('/apiHASMC', function(){
+	return view('patient/apiHASMC');
 });
 // *********************************************************
 

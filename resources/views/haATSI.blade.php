@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	@include('partials.header',['title'=>"75 Years or older Health Assessments within the last 12 months"])
+	@include('partials.header',['title'=>"ATSI Patients without HA"])
 </head>
 <body>
 	@include('partials.sidebar')
@@ -45,12 +45,9 @@
 	$db = null;
 	$results_array = $stmt->fetchAll();
 
-		// Printing the Content Table.
-		echo '<div class="container-fluid">';
-		echo '<div class="panel panel-default">';
-		echo '<div class="panel-heading"><b>'.'75 Years or older Health Assessments within the last 12 months'.'</b></div>';
-
 ?>
-	@include('partials.tableS')
+	@include('newpartials.haTable',['title'=>'ATSI Patients without HA'])
+	{{-- Footer --}}
+	@include('newpartials/footer')
 </body>
 </html>

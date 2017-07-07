@@ -80,7 +80,7 @@
 	     var rowid = $(e.relatedTarget).data('id');
         $.ajax({
             type : 'GET',
-            url : '/apiSaleItems', //Here you will fetch records 
+            url : '/apiHA{{$clinic}}', //Here you will fetch records 
             data :  'id='+ rowid, //Pass $id
             success : function(data){
             $('#fav-body').html(data);//Show fetched data from database

@@ -54,10 +54,10 @@ if(isset($_GET['id'])) {
       }
 
       // Grabbing Sale Items from BHMCSales table.
-      $bhmcSales = DB::connection('mysql')->select("SELECT patientID,ITEMNUM,SERVICEDATE FROM bhmcSales WHERE ITEMNUM IN ('12323','12306','12315','12312','12321') AND patientID =:ptId", ['ptId'=>$ptId]);
+      // $bhmcSales = DB::connection('mysql')->select("SELECT patientID,ITEMNUM,SERVICEDATE FROM bhmcSales WHERE ITEMNUM IN ('12323','12306','12315','12312','12321') AND patientID =:ptId", ['ptId'=>$ptId]);
 
       // Grabbing Sale Items from BHGPSC
-      $sql3 = "SELECT PT_Id_Fk,ItemNum,ServiceDate FROM Sale WHERE ItemNum IN ('12323','12306','12315','12312','12321') AND PT_Id_Fk=".$ptId." ORDER BY 1";
+      $sql3 = "SELECT PT_Id_Fk,ItemNum,ServiceDate FROM Sale WHERE ItemNum IN ('701','703','705','707','715') AND PT_Id_Fk=".$ptId." ORDER BY 1";
       try {
           $stmt3 = $db->prepare($sql3);
           $stmt3->execute();
@@ -135,25 +135,6 @@ if(isset($_GET['id'])) {
         <td>{{$STD}}</td>
       </tr>
     </tbody>
-  </table>
-  <table class='table table-striped table-bordered'  id='mytable'>
-    <thead>
-      <tr>
-        <td>BHMC Sales</td>
-      </tr>
-      <tr>
-        <td>PatientID</td>
-        <td>Item Number</td>
-        <td>Service Date</td>
-      </tr>
-      @foreach ($bhmcSales as $element)
-        <tr>
-        <td>{{$element->patientID}}</td>
-        <td>{{$element->ITEMNUM}}</td>
-        <td>{{$element->SERVICEDATE}}</td>
-      </tr>
-      @endforeach
-    </thead>
   </table>
   <table class='table table-striped table-bordered'  id='mytable'>
     <thead>

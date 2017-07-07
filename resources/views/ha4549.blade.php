@@ -45,12 +45,9 @@
 	$db = null;
 	$results_array = $stmt->fetchAll();
 
-		// Printing the Content Table.
-		echo '<div class="container-fluid">';
-		echo '<div class="panel panel-default">';
-		echo '<div class="panel-heading"><b>'.'45 to 49 Year Old Health Assessments within the last 12 months'.'</b></div>';
-
 ?>
-	@include('partials.tableS')
+	@include('newpartials.haTable',['title'=>'45 to 49 Year Old Health Assessments NOT DONE within the last 12 months'])
+	{{-- Footer --}}
+	@include('newpartials/footer')
 </body>
 </html>
