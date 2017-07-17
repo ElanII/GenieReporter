@@ -9,13 +9,14 @@
     date_default_timezone_set('Australia/Darwin');
 	$yearsAgo = date("Y-m-d H:i:s",strtotime('-24 month'));
 
-	// Grabbing the relevant patients from BHMC db stored on the GR Server.
+	// Item numbers needing update. Please change as required, try not to use too manu items and don't place common items such as 23.
 	$patientsHaveDexa = DB::connection('mysql')->select("SELECT dexaID, FIRSTNAME, SURNAME FROM bhmcSales WHERE ITEMNUM IN ('12323','12306','12315')");
 
 	// Connection to the BHGPSC Genie server.
 	$db = new PDO($dsn,$user,$pass);
 
-	// Looking up PTID for BHMC patients.
+	// This section finds the patient in GPSC and updates MYSQL table with that ID for the item numbers specified above.
+	
 	// foreach ($patientsHaveDexa as $value) {
 	// 	$sql1 = "SELECT Id FROM Patient WHERE FirstName LIKE :FirstName AND Surname LIKE :Surname";
 	// 	try {

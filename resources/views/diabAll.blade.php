@@ -19,7 +19,7 @@
 		$today = date("Y-m-d");
 
 	
-		$sql3 = "SELECT DISTINCT PT_Id_Fk AS ID FROM CurrentProblem WHERE Problem LIKE '%diabetes%'";
+		$sql3 = "SELECT DISTINCT PT_Id_Fk AS ID FROM CurrentProblem WHERE LOWER(Problem) LIKE '%diabetes%'";
 		try {
 			$stmt3 = $db->prepare($sql3);
 			$stmt3->execute();
@@ -32,8 +32,8 @@
 			$PTID3[] = $value['ID'];
 		}
 		
-		$sql1 = "SELECT Id,FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS,Age,Inactive FROM Patient WHERE
-		 Id IN (".implode(',', $PTID3).")";
+		$sql1 = "SELECT DISTINCT Id,FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS,Age,Inactive FROM Patient WHERE
+		 Id IN (".implode(',', $PTID3).") OR Diabetic = true";
 		try {
 			$stmt = $db->prepare($sql1);
 			$stmt->execute();

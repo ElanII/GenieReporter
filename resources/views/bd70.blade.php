@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	@include('partials.header',['title'=>"75 Years or older Health Assessments within the last 12 months"])
+	@include('partials.header',['title'=>"70+ Never billed for DEXA"])
 </head>
 <body>
 	@include('partials.sidebar')
@@ -16,10 +16,10 @@
 
 
 	// Looking for PT IDs for patients with Sale ItemNum within time frame.
-	$sql0 = "SELECT PT_Id_Fk FROM Sale WHERE ItemNum IN ('12323','12306','12312','12315','12321') AND ServiceDate >= :YearAgo";
+	$sql0 = "SELECT DISTINCT PT_Id_Fk FROM Sale WHERE ItemNum IN ('12323','12306','12312','12315','12321')";
 	try {
 		$stmt0 = $db->prepare($sql0);
-		$stmt0->execute([':YearAgo'=> $YearAgo]);
+
 	} catch (PDOException $e0) {
 		echo "Problem with initial database query:".$e0;
 	}
@@ -30,13 +30,18 @@
 		$PTID[] = $value['PT_ID_FK'];
 	}
 	
-	
+
+	// BHMC Sales checking.
+	$bhmcDexa = DB::connection('mysql')->select("SELECT DISTINCT patientID FROM bhmcSales WHERE ITEMNUM IN ('12323','12306','12312','12315','12321')");
+	foreach ($bhmcDexa as $value) {
+		$PTID2[] = $value->patientID;
+	}
 	//var_dump($PTID);
 
 
 
 	// The Primary Query. Will fetch results matching given criteria.
-	$sql1 = "SELECT Id,FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS,Age,Inactive FROM Patient WHERE Postcode LIKE '%2880%' AND Age >= 70 AND Id NOT IN (".implode(',', $PTID).")";
+	$sql1 = "SELECT Id,FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS,Age,Inactive FROM Patient WHERE Postcode LIKE '%2880%' AND Age >= 70 AND Id NOT IN (".implode(',', $PTID).") AND Id NOT IN (".implode(',', $PTID2).")";
 	//echo $sql1;
 	//$sql = 'SELECT FullName,FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS FROM Patient WHERE Surname=\'mouse\'';
 	try {
@@ -51,7 +56,7 @@
 		// Printing the Content Table.
 		echo '<div class="container-fluid">';
 		echo '<div class="panel panel-default">';
-		echo '<div class="panel-heading"><b>'.'75 Years or older Health Assessments within the last 12 months'.'</b></div>';
+		echo '<div class="panel-heading"><b>'.'70+ Never billed for DEXA'.'</b></div>';
 
 ?>
 	@include('partials.tableS')

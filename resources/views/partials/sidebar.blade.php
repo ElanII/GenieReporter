@@ -67,6 +67,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">eHealth <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a href="/myhr/{{$clinic}}">All My Health Record patients</a></li>
+            <li role="separator" class="divider"></li>
             <li><a href="/myhrYES/{{$clinic}}">Today's appointments</a></li>
             <li><a href="/apptSearch/{{$clinic}}">Search by Provider (Patients with MyHR)</a></li>
             <li role="separator" class="divider"></li>
@@ -100,12 +102,13 @@
           <ul class="dropdown-menu">
             <li><a href="/dexa24/BHGPSC">DEXA 24 months</a></li>
             <li><a href="/dexa12/BHGPSC">DEXA 12 months</a></li>
+            <li><a href="/bd70/BHGPSC">70+ never billed</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cleansing <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HMR <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            
+            <li><a href="/hmrSearch/{{$clinic}}">HMR Search</a></li>
           </ul>
         </li>
       </ul>

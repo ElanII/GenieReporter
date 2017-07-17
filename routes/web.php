@@ -119,7 +119,21 @@ Route::get('/{siteName}', function ($siteName) {
 	return view('welcome', compact('dsn','user','pass','clinic'));
 });
 
-
+Route::get('bhmcLookup/{siteName}', function ($siteName) {
+	if ($siteName=='SMC' || $siteName=='smc') {
+		$dsn = Config::get('constants.dsn1');
+		$user = Config::get('constants.user1');
+		$pass = Config::get('constants.pass1');
+		$clinic = Config::get('constants.clinic1');
+	} elseif ($siteName=='BHGPSC' || $siteName=='bhgpsc') {
+		$dsn = Config::get('constants.dsn');
+		$user = Config::get('constants.user');
+		$pass = Config::get('constants.pass');
+		$clinic = Config::get('constants.clinic');
+	} 
+	
+	return view('bhmcLookup', compact('dsn','user','pass','clinic'));
+});
 
 Route::get('/report2/{siteName}', function($siteName){
 	if ($siteName=='SMC' || $siteName=='smc') {
@@ -816,13 +830,13 @@ Route::get('/bd70/{siteName}', function($siteName){
  * IMPORTANT: Never Load/Use this view. This is used to find 
  * GPSC patinet IDs for BHMC patients.
  *
- * 
- * View Page that identifies the Clinic from end of URL and
- * uses the respective DB connection settings. Search pages
- * are the same, they will additionally have a FORM element
- * that POST to 2 different Results pages as seen above.
+ * Change the ItemNum on this View as required and update the application Database
+ * for BHMC Sales.
+ *
+ * This is required for accurate reading of results for BHMC Sales,
+ * if the ItemNum are being searched for.
  */
-Route::get('/bhmcDexa/{siteName}', function($siteName){
+Route::get('/update/{siteName}', function($siteName){
 	if ($siteName=='SMC' || $siteName=='smc') {
 		$dsn = Config::get('constants.dsn1');
 		$user = Config::get('constants.user1');
@@ -836,7 +850,7 @@ Route::get('/bhmcDexa/{siteName}', function($siteName){
 		$clinic = Config::get('constants.clinic');
 	}
 	
-	return view('bhmcDexa', compact('dsn','user','pass','clinic'));
+	return view('update', compact('dsn','user','pass','clinic'));
 });
 // *******************************************************
 
@@ -885,5 +899,43 @@ Route::get('/dexa12/{siteName}', function($siteName){
 	}
 	
 	return view('dexa12', compact('dsn','user','pass','clinic'));
+});
+// *******************************************************
+
+/**
+ * Search Page that identifies the Clinic from end of URL and
+ * uses the respective DB connection settings. Search pages
+ * are the same, they will additionally have a FORM element
+ * that POST to 2 different Results pages as seen above.
+ */
+Route::get('/hmrSearch/{siteName}', function($siteName){
+	if ($siteName=='SMC' || $siteName=='smc') {
+		$dsn = Config::get('constants.dsn1');
+		$user = Config::get('constants.user1');
+		$pass = Config::get('constants.pass1');
+		$clinic = Config::get('constants.clinic1');
+		// Look for these variables inside 'config/constants.php'
+	} elseif ($siteName=='BHGPSC' || $siteName=='bhgpsc') {
+		$dsn = Config::get('constants.dsn');
+		$user = Config::get('constants.user');
+		$pass = Config::get('constants.pass');
+		$clinic = Config::get('constants.clinic');
+	}
+	
+	return view('hmrSearch', compact('dsn','user','pass','clinic'));
+});
+
+Route::post('/hmrResultsBHGPSC', 
+  ['as' => 'hmrResultsBHGPSC', 'uses' => 'results3Controller@create2']);
+
+Route::post('/hmrResultsSMC', 
+  ['as' => 'hmrResultsSMC', 'uses' => 'results3Controller@create']);
+
+Route::get('/hmrResultsBHGPSC', function(){
+	return view('hmrResultsBHGPSC');
+});
+
+Route::get('/hmrResultsSMC', function(){
+	return view('hmrResultsSMC');
 });
 // *******************************************************
