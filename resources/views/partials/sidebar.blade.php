@@ -86,9 +86,34 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Health Assessments <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a href="/ha4549_searchbyprovider/{{$clinic}}">45-49 year olds by Provider Appt</a></li>
+            <li><a href="/ha70_searchbyprovider/{{$clinic}}">75+ year olds by Provider Appt</a></li>
+            <li role="separator" class="divider"></li>
             <li><a href="/ha4549/{{$clinic}}">45-49 year olds</a></li>
             <li><a href="/ha75/{{$clinic}}">75+ year olds</a></li>
             <li><a href="/haATSI/{{$clinic}}">Aboriginal & Torres Strait Islanders</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Staying Healthy <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/smokers_StayHealthy/{{$clinic}}">Smokers without CP</a></li>
+            <li><a href="/bmi_StayHealthy/{{$clinic}}">High BMI without CP</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/shSmoker_searchbyprovider/{{$clinic}}">Smokers without CP by Appt</a></li>
+            <li><a href="/shBMI_searchbyprovider/{{$clinic}}">High BMI without CP by Appt</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AUSDRISK <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/ausdrisk_searchbyprovider/{{$clinic}}">AUSDRISK needed patients by Provider Appt</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Care Plans <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/cp_providerSearch/{{$clinic}}">Care Plans due by Provider Appt</a></li>
           </ul>
         </li>
         {{-- <li class="dropdown">
@@ -103,6 +128,9 @@
             <li><a href="/dexa24/BHGPSC">DEXA 24 months</a></li>
             <li><a href="/dexa12/BHGPSC">DEXA 12 months</a></li>
             <li><a href="/bd70/BHGPSC">70+ never billed</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="dexa24apptSearch/BHGPSC">DEXA 24 Appt Search</a></li>
+            <li><a href="bd70apptSearch/BHGPSC">BD 70+ Appt Search</a></li>
           </ul>
         </li>
         <li class="dropdown">
