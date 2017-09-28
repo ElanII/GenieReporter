@@ -49,7 +49,7 @@
 		}
 
 		// Sale not needed
-		$sql3 = "SELECT DISTINCT PT_Id_Fk AS ID FROM Sale WHERE ItemNum IN ('721','723','732') AND ServiceDate > :YearAgo";
+		$sql3 = "SELECT DISTINCT PT_Id_Fk AS ID FROM Sale WHERE ItemNum IN ('721','723','732') AND ServiceDate <= :YearAgo";
 		try {
 			$stmt3 = $db->prepare($sql3);
 			$stmt3->execute([':YearAgo'=> $YearAgo]);
@@ -62,27 +62,15 @@
 			$PTID3[] = $value['ID'];
 		}
 
-		// Sale exists
-		$sql2 = "SELECT DISTINCT PT_Id_Fk AS ID FROM Sale WHERE ItemNum IN ('721','723','732') AND ServiceDate > :TimeLimit LIMIT 2000";
-		try {
-			$stmt2 = $db->prepare($sql2);
-			$stmt2->execute([':TimeLimit'=> $TimeLimit]);
-		} catch (PDOException $e2) {
-			echo "Problem with initial database query:".$e2;
-		}
-		$results_array2 = $stmt2->fetchAll();
-		// Create an array of PT IDs who have the condition specified.
-		foreach ($results_array2 as $value) {
-			$PTID2[] = $value['ID'];
-		}
+		// echo '<pre>' . var_export($PTID0, true) . '</pre>';
 		// echo '<pre>' . var_export($PTID3, true) . '</pre>';
 		// var_dump($PTID2);
-
-		
+		$PTID9 = array_intersect($PTID0, $PTID3);
+		// echo '<pre>' . var_export($PTID9, true) . '</pre>';
 
 		// Patient
 		$sql1 = "SELECT DISTINCT Id,FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS,Age,Inactive FROM Patient WHERE
-		 Id IN (".implode(',', $PTID0).") AND Id IN (".implode(',', $PTID2).") AND Id NOT IN (".implode(',', $PTID3).")";
+		 Id IN (".implode(',', $PTID9).")";
 		try {
 			$stmt = $db->prepare($sql1);
 			$stmt->execute();

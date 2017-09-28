@@ -62,7 +62,7 @@
 		}
 
 		// Sale exists
-		$sql2 = "SELECT DISTINCT PT_Id_Fk AS ID FROM Sale WHERE ItemNum IN ('721','723','732')";
+		$sql2 = "SELECT DISTINCT PT_Id_Fk AS ID FROM Sale WHERE ItemNum IN ('721','723','732') LIMIT 1000";
 		try {
 			$stmt2 = $db->prepare($sql2);
 			$stmt2->execute();

@@ -12,7 +12,7 @@
 	$db = new PDO($dsn,$user,$pass);
 
 	// Setting the filter Date.
-	$YearAgo = date("Y-m-d H:i:s",strtotime('-12 month'));
+	$YearAgo = date("Y-m-d H:i:s",strtotime('-24 month'));
 
 
 	// Looking for PT IDs for patients with Sale ItemNum within time frame.

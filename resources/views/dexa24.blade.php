@@ -21,14 +21,22 @@
 		// BHMC ITEM COMPLETE.
 		$patientsHaveDexa = DB::connection('mysql')->select("SELECT DISTINCT patientID FROM bhmcSales WHERE ITEMNUM IN ('12323','12306','12315') AND SERVICEDATE >= :yearsAgo",
 			['yearsAgo'=>$yearsAgo]);
-		foreach ($patientsHaveDexa as $value) {
-			$PTID[] = $value->patientID;
+		if (count($patientsHaveDexa)==0){
+			$PTID = [0];
+		} else {
+			foreach ($patientsHaveDexa as $value) {
+				$PTID[] = $value->patientID;
+			}
 		}
 
 		// BHMC ITEM PRESENT (COMPLETE OR INCOMPLETE)
 		$patientsHaveDexa = DB::connection('mysql')->select("SELECT DISTINCT patientID FROM bhmcSales WHERE ITEMNUM IN ('12323','12306','12315')");
-		foreach ($patientsHaveDexa as $value) {
-			$PTID3[] = $value->patientID;
+		if (count($patientsHaveDexa)==0){
+			$PTID3 = [0];
+		} else {
+			foreach ($patientsHaveDexa as $value) {
+				$PTID3[] = $value->patientID;
+			}
 		}
 
 

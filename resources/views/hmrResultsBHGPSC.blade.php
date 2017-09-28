@@ -82,6 +82,8 @@
 		foreach ($filtered2 as $key => $value) {
 			$PTID2[] = (string)$key;
 		}
+
+		$PTID9 = array_intersect($PTID0, $PTID2);
 		// echo '<pre>' . var_export($PTID3, true) . '</pre>';
 		// var_dump($PTID2);
 
@@ -89,7 +91,7 @@
 
 		// Patient
 		$sql1 = "SELECT DISTINCT Id,FirstName,Surname,HomePhone,MobilePhone,LastSeenDate,DOB,ChartOrNHS,Age,Inactive FROM Patient WHERE
-		 Id IN (".implode(',', $PTID0).") AND Id IN (".implode(',', $PTID2).") AND Id NOT IN (".implode(',', $PTID3).")";
+		 Id IN (".implode(',', $PTID9).") AND Id NOT IN (".implode(',', $PTID3).")";
 		try {
 			$stmt = $db->prepare($sql1);
 			$stmt->execute();
